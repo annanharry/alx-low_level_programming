@@ -18,7 +18,7 @@ int main(void)
 		if (k < j)
 		{
 			putchar(k + '0');
-			purchar(j + '0');
+			putchar(j + '0');
 
 			if (i < 89)
 			{
