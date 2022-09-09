@@ -1,5 +1,5 @@
 #include <stdio.h>
-/*
+/**
  * main - main block
  * Description: print lowercase leters except 'q' and 'e'
  * Return: 0
