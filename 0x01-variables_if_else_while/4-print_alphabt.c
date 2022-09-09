@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-	car c = 'a';
+	char c = 'a';
 
 	while (c <= 'z')
 	{
