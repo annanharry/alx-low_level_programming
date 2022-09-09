@@ -1,5 +1,5 @@
 #include <stdio.h>
-/*
+/**
  * main - main block
  * Description: possible different combinations of three digits
  * Return: 0
@@ -10,7 +10,7 @@ int main(void)
 
 	for (i = 0; i < 1000; i++)
 	{
-		j = i /100;
+		j = i / 100;
 		k = (i / 10) % 10;
 		l = i % 10;
 
