@@ -1,5 +1,5 @@
 #include <stdio.h>
-/*
+/**
  * main - main block
  * Description: possible combinations of two two-digit numbers
  * Return: 0;
@@ -7,7 +7,7 @@
 int main(void)
 {
 	int a, b, c, d, i, j;
-	
+
 	for (i = 0; i < 100; i++)
 	{
 		a = i / 10;
