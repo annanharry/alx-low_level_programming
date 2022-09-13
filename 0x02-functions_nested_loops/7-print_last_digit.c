@@ -1,12 +1,13 @@
 #include "main.h"
 /**
- * print_last_digit - 
- * @n: 
+ * print_last_digit -
+ * @n: get and print last digit
  * Return: value
  */
 int print_last_digit(int n)
 {
 	int nv;
+
 	if (n < 0)
 	{
 		nv = -1 * (n % 10);
