@@ -1,8 +1,8 @@
 #include "main.h"
 /**
  * print_times_table
- * Description:
- * @n:
+ * Description: times table
+ * @n: int
  */
 void print_times_table(int n)
 {
@@ -34,7 +34,7 @@ void print_times_table(int n)
 				_putchar(z + '0');
 			}
 			else
-				_putchar(',');
+				_putchar(z + '0');
 
 			if (y != n)
 			{
