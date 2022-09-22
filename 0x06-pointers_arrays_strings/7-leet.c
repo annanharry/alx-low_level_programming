@@ -8,21 +8,14 @@
 
 char *leet(char *s)
 {
-	int i;
+	char *ret = s, *leetin = LEETIN, *leetout = LEETOUT;
+	int i = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	for (; *s; s++)
 	{
-		while (s[i] == 'a' || s[i] == 'A')
-			s[i] = '4';
-		while (s[i] == 'e' || s[i] == 'E')
-			s[i] = '3';
-		while (s[i] == 'o' || s[i] == 'O')
-			s[i] = '0';
-		while (s[i] == 't' || s[i] == 'T')
-			s[i] = '7';
-		while (s[i] == 'l' || s[i] == 'L')
-			s[i] = '1';
+		for (i = 0; leetin[i]; i++)
+			if (*s == leetin[i])
+				*s = leetout[i];
 	}
-
-	return (s);
+	return (ret);
 }
