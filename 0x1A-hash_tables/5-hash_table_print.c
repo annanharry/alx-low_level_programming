@@ -1,37 +1,62 @@
 #include "hash_tables.h"
+#include <stdio.h>
 
 /**
- * hash_table_print - Print a hash table
- * @ht: hash table
+ * hash_table_print_sep - print a separator between elements in a hash table
+ */
+void hash_table_print_sep(void)
+{
+	fputs(", ", stdout);
+}
+
+/**
+ * hash_chain_print - print the elements in a singly-linked list
+ * @head: a pointer to the singly-linked list
+ */
+void hash_chain_print(const hash_node_t *head)
+{
+	for (;;)
+	{
+		if (head->value)
+			printf("'%s': '%s'", head->key, head->value);
+		else
+			printf("'%s': %s", head->key, head->value);
+
+		head = head->next;
+
+		if (head)
+			hash_table_print_sep();
+		else
+			return;
+	}
+}
+
+/**
+ * hash_table_print - print the elements in a hash table
+ * @ht: a pointer to the hash table
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	hash_node_t *tmp;
-	unsigned long int i;
-	int toggle;
+	void (*print_sep)() = NULL;
+	hash_node_t **array = NULL;
+	unsigned long int index = 0;
+	unsigned long int size = 0;
 
-	if (ht == NULL)
-		return;
-
-	printf("{");
-
-	for (i = 0, toggle = 0; i < ht->size; i++)
+	if (ht)
 	{
-		tmp = ht->array[i];
-		if (tmp != NULL)
+		putchar('{');
+		for (array = ht->array, size = ht->size; index < size; ++index)
 		{
-			if (toggle == 1)
-				printf(", ");
-			printf("'%s': '%s'", tmp->key, tmp->value);
-			while ((tmp = tmp->next) != NULL)
+			if (array[index])
 			{
-				printf(", ");
-				printf("'%s': '%s'", tmp->key, tmp->value);
+				if (print_sep)
+					print_sep();
+				else
+					print_sep = hash_table_print_sep;
+
+				hash_chain_print(array[index]);
 			}
-
-			toggle = 1;
 		}
+		puts("}");
 	}
-
-	printf("}\n");
 }
